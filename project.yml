@@ -1,8 +1,0 @@
-objectives:
-  - "Publicly released ElasticSearch Engine for Waterline ORM written in Node."
-  
-features:
-  - "Adapter module should NOT require Waterline, if following sail-mongo example."
-  
-methods:
-  - ""
