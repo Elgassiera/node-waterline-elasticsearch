@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/usabilitydynamics/node-waterline-elasticsearch.png?label=ready&title=Ready)](https://waffle.io/usabilitydynamics/node-waterline-elasticsearch)
 ## Notes
 
   - Support restricted to a single ElasticSearch server per Waterline Collection.
