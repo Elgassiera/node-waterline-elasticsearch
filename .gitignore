@@ -1,12 +1,15 @@
 temp
+tmp
 node_modules
 npm-debug.log
 
 .svn
 .idea
 .idea/workspace.xml
+*.iml
 .DS_Store
-.dynamic
+.dynamic/*
+.dynamic/.
 .Trashes
 *.sublime-project
 *.sublime-workspace
@@ -23,6 +26,9 @@ npm-debug.log
 *#
 ssl
 *~
-.idea
 nbproject
 .waterline
+coverage
+lib-cov
+.vagrant
+Vagrantfile

@@ -1,3 +1,7 @@
+## Project info
+ * [![Dependency status](https://david-dm.org/UsabilityDynamics/node-waterline-elasticsearch.png)](https://david-dm.org/UsabilityDynamics/node-waterline-elasticsearch#info=dependencies&view=table)
+ * [![Dev Dependency Status](https://david-dm.org/UsabilityDynamics/node-waterline-elasticsearch/dev-status.png)](https://david-dm.org/UsabilityDynamics/node-waterline-elasticsearch#info=devDependencies&view=table)
+
 ## Notes
 
   - Support restricted to a single ElasticSearch server per Waterline Collection.
