@@ -7,8 +7,8 @@
         "logo": "http://media.usabilitydynamics.com/logo.png"
     },
     "files": {
-        "lib/common/utility.js": {
-            "name": "lib/common/utility.js",
+        "lib\\common\\utility.js": {
+            "name": "lib\\common\\utility.js",
             "modules": {},
             "classes": {
                 "Utility": 1
@@ -18,29 +18,29 @@
             },
             "namespaces": {}
         },
-        "lib/models/cluster.js": {
-            "name": "lib/models/cluster.js",
+        "lib\\models\\cluster.js": {
+            "name": "lib\\models\\cluster.js",
             "modules": {},
             "classes": {},
             "fors": {},
             "namespaces": {}
         },
-        "lib/models/index.js": {
-            "name": "lib/models/index.js",
+        "lib\\models\\index.js": {
+            "name": "lib\\models\\index.js",
             "modules": {},
             "classes": {},
             "fors": {},
             "namespaces": {}
         },
-        "lib/models/node.js": {
-            "name": "lib/models/node.js",
+        "lib\\models\\node.js": {
+            "name": "lib\\models\\node.js",
             "modules": {},
             "classes": {},
             "fors": {},
             "namespaces": {}
         },
-        "lib/adapter.js": {
-            "name": "lib/adapter.js",
+        "lib\\adapter.js": {
+            "name": "lib\\adapter.js",
             "modules": {},
             "classes": {},
             "fors": {},
@@ -57,7 +57,7 @@
             "extensions": [],
             "plugin_for": [],
             "extension_for": [],
-            "file": "lib/common/utility.js",
+            "file": "lib\\common\\utility.js",
             "line": 1,
             "description": "Helper Utility Collection",
             "is_constructor": 1,
@@ -68,13 +68,13 @@
     },
     "classitems": [
         {
-            "file": "lib/common/utility.js",
+            "file": "lib\\common\\utility.js",
             "line": 15,
             "description": "Utility Properties",
             "class": "Utility"
         },
         {
-            "file": "lib/common/utility.js",
+            "file": "lib\\common\\utility.js",
             "line": 22,
             "description": "Converts a Waterline model to ElasticSearch document.",
             "params": [
@@ -98,7 +98,7 @@
             "class": "Utility"
         },
         {
-            "file": "lib/common/utility.js",
+            "file": "lib\\common\\utility.js",
             "line": 76,
             "description": "Converts ElasticSearch document to Waterline Model",
             "params": [
@@ -118,7 +118,7 @@
             "class": "Utility"
         },
         {
-            "file": "lib/common/utility.js",
+            "file": "lib\\common\\utility.js",
             "line": 119,
             "description": "Simple Merge (not deep)",
             "params": [
@@ -138,34 +138,38 @@
             "class": "Utility"
         },
         {
-            "file": "lib/models/cluster.js",
+            "file": "lib\\common\\utility.js",
+            "line": 179,
+            "description": "Iterate Over Collection.",
+            "itemtype": "method",
+            "name": "forEach",
+            "class": "Utility"
+        },
+        {
+            "file": "lib\\models\\cluster.js",
             "line": 1,
             "description": "Cluster Model",
             "class": ""
         },
         {
-            "file": "lib/models/index.js",
+            "file": "lib\\models\\index.js",
             "line": 1,
             "description": "Index Model",
             "class": ""
         },
         {
-            "file": "lib/models/node.js",
+            "file": "lib\\models\\node.js",
             "line": 1,
             "description": "Node Model",
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 1,
-            "description": "Waterline ElasticSearch adapter",
+            "file": "lib\\adapter.js",
+            "line": 5,
+            "description": "Waterline ElasticSearch Adapter",
             "params": [
                 {
-                    "name": "settings",
-                    "description": ""
-                },
-                {
-                    "name": "fn",
+                    "name": "options",
                     "description": ""
                 }
             ],
@@ -177,20 +181,20 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 43,
-            "description": "adapter Instance methods.",
+            "file": "lib\\adapter.js",
+            "line": 46,
+            "description": "Adapter Instance methods.",
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 49,
+            "file": "lib\\adapter.js",
+            "line": 52,
             "description": "Administrative.",
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 54,
+            "file": "lib\\adapter.js",
+            "line": 57,
             "description": "One of the earliest methods called when a type is added.",
             "params": [
                 {
@@ -209,14 +213,14 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 105,
+            "file": "lib\\adapter.js",
+            "line": 108,
             "description": "CRUD Related.",
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 110,
+            "file": "lib\\adapter.js",
+            "line": 113,
             "description": "Define Collection Schema.\n\nCreates the database if it does not already exist",
             "params": [
                 {
@@ -241,8 +245,8 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 134,
+            "file": "lib\\adapter.js",
+            "line": 137,
             "description": "Creates only if there isn't already a document there.",
             "params": [
                 {
@@ -254,7 +258,7 @@
                     "description": ""
                 },
                 {
-                    "name": "cb",
+                    "name": "callback",
                     "description": ""
                 }
             ],
@@ -265,8 +269,8 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 176,
+            "file": "lib\\adapter.js",
+            "line": 179,
             "description": "Updates Existing.",
             "params": [
                 {
@@ -293,8 +297,8 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 205,
+            "file": "lib\\adapter.js",
+            "line": 208,
             "description": "Delete one or more models from the type",
             "params": [
                 {
@@ -317,8 +321,8 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 251,
+            "file": "lib\\adapter.js",
+            "line": 254,
             "description": "Simply returns the schema of the given type.\n\n- Required by Waterline.",
             "params": [
                 {
@@ -337,27 +341,30 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 276,
+            "file": "lib\\adapter.js",
+            "line": 279,
             "description": "Search Related.",
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 281,
-            "description": "Find something.\n\nExample of what we get from Waterline:\n {\"where\":{\"_id\":\"orEXdQEj274Do1OLiTqU32oW\"},\"limit\":1}",
+            "file": "lib\\adapter.js",
+            "line": 284,
+            "description": "Search Documents.\n\nExample of what we get from Waterline:\n { \"where\":{ \"_id\": \"orEXdQEj274Do1OLiTqU32oW\" }, \"limit\":1 }\n\n### ElasticSearch Exceptions\nIndexMissingException[[%INDEX_NAME%] missing]",
             "params": [
                 {
-                    "name": "path",
-                    "description": ""
+                    "name": "type",
+                    "description": "",
+                    "type": "String"
                 },
                 {
-                    "name": "options",
-                    "description": ""
+                    "name": "query",
+                    "description": "",
+                    "type": "Object"
                 },
                 {
-                    "name": "cb",
-                    "description": ""
+                    "name": "callback",
+                    "description": "",
+                    "type": "Function"
                 }
             ],
             "return": {
@@ -367,9 +374,9 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 320,
-            "description": "Find Single Model.\n\nNotice, this is not recognized by Waterline and is only used when called programatically\nby other adapter methods, such as from findOrCreate.\n\nAlso be advised, the native findOne method only accepts two arguments.",
+            "file": "lib\\adapter.js",
+            "line": 350,
+            "description": "Find Single Model.\n\nNotice, this is not recognized by Waterline and is only used when called programatically\nby other Adapter methods, such as from findOrCreate.\n\nAlso be advised, the native findOne method only accepts two arguments.",
             "params": [
                 {
                     "name": "type",
@@ -391,8 +398,8 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 387,
+            "file": "lib\\adapter.js",
+            "line": 417,
             "params": [
                 {
                     "name": "type",
@@ -418,8 +425,8 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 426,
+            "file": "lib\\adapter.js",
+            "line": 456,
             "params": [
                 {
                     "name": "path",
@@ -441,8 +448,8 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 445,
+            "file": "lib\\adapter.js",
+            "line": 475,
             "description": "Facet Query.",
             "params": [
                 {
@@ -465,14 +472,14 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 465,
+            "file": "lib\\adapter.js",
+            "line": 495,
             "description": "Not Used / Not Supported.",
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 506,
+            "file": "lib\\adapter.js",
+            "line": 536,
             "description": "Streams models to ES.",
             "params": [
                 {
@@ -491,18 +498,18 @@
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 551,
-            "description": "adapter Constructor methods.",
+            "file": "lib\\adapter.js",
+            "line": 581,
+            "description": "Adapter Constructor methods.",
             "class": ""
         },
         {
-            "file": "lib/adapter.js",
-            "line": 556,
+            "file": "lib\\adapter.js",
+            "line": 586,
             "description": "Instantiation helper.",
             "params": [
                 {
-                    "name": "settings",
+                    "name": "options",
                     "description": ""
                 }
             ],
@@ -516,167 +523,167 @@
     "warnings": [
         {
             "message": "unknown tag: date",
-            "line": " lib/common/utility.js:1"
+            "line": " lib\\common\\utility.js:1"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/common/utility.js:76"
+            "line": " lib\\common\\utility.js:76"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/common/utility.js:119"
+            "line": " lib\\common\\utility.js:119"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:1"
+            "line": " lib\\adapter.js:5"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:54"
+            "line": " lib\\adapter.js:57"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:110"
+            "line": " lib\\adapter.js:113"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:134"
+            "line": " lib\\adapter.js:137"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:176"
+            "line": " lib\\adapter.js:179"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:205"
+            "line": " lib\\adapter.js:208"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:251"
+            "line": " lib\\adapter.js:254"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:281"
+            "line": " lib\\adapter.js:284"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:320"
+            "line": " lib\\adapter.js:350"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:387"
+            "line": " lib\\adapter.js:417"
         },
         {
             "message": "replacing incorrect tag: returns with return",
-            "line": " lib/adapter.js:556"
+            "line": " lib\\adapter.js:586"
         },
         {
             "message": "Missing item type\nUtility Properties",
-            "line": " lib/common/utility.js:15"
+            "line": " lib\\common\\utility.js:15"
         },
         {
             "message": "Missing item type\nConverts a Waterline model to ElasticSearch document.",
-            "line": " lib/common/utility.js:22"
+            "line": " lib\\common\\utility.js:22"
         },
         {
             "message": "Missing item type\nConverts ElasticSearch document to Waterline Model",
-            "line": " lib/common/utility.js:76"
+            "line": " lib\\common\\utility.js:76"
         },
         {
             "message": "Missing item type\nSimple Merge (not deep)",
-            "line": " lib/common/utility.js:119"
+            "line": " lib\\common\\utility.js:119"
         },
         {
             "message": "Missing item type\nCluster Model",
-            "line": " lib/models/cluster.js:1"
+            "line": " lib\\models\\cluster.js:1"
         },
         {
             "message": "Missing item type\nIndex Model",
-            "line": " lib/models/index.js:1"
+            "line": " lib\\models\\index.js:1"
         },
         {
             "message": "Missing item type\nNode Model",
-            "line": " lib/models/node.js:1"
+            "line": " lib\\models\\node.js:1"
         },
         {
-            "message": "Missing item type\nWaterline ElasticSearch adapter",
-            "line": " lib/adapter.js:1"
+            "message": "Missing item type\nWaterline ElasticSearch Adapter",
+            "line": " lib\\adapter.js:5"
         },
         {
-            "message": "Missing item type\nadapter Instance methods.",
-            "line": " lib/adapter.js:43"
+            "message": "Missing item type\nAdapter Instance methods.",
+            "line": " lib\\adapter.js:46"
         },
         {
             "message": "Missing item type\nAdministrative.",
-            "line": " lib/adapter.js:49"
+            "line": " lib\\adapter.js:52"
         },
         {
             "message": "Missing item type\nOne of the earliest methods called when a type is added.",
-            "line": " lib/adapter.js:54"
+            "line": " lib\\adapter.js:57"
         },
         {
             "message": "Missing item type\nCRUD Related.",
-            "line": " lib/adapter.js:105"
+            "line": " lib\\adapter.js:108"
         },
         {
             "message": "Missing item type\nDefine Collection Schema.\n\nCreates the database if it does not already exist",
-            "line": " lib/adapter.js:110"
+            "line": " lib\\adapter.js:113"
         },
         {
             "message": "Missing item type\nCreates only if there isn't already a document there.",
-            "line": " lib/adapter.js:134"
+            "line": " lib\\adapter.js:137"
         },
         {
             "message": "Missing item type\nUpdates Existing.",
-            "line": " lib/adapter.js:176"
+            "line": " lib\\adapter.js:179"
         },
         {
             "message": "Missing item type\nDelete one or more models from the type",
-            "line": " lib/adapter.js:205"
+            "line": " lib\\adapter.js:208"
         },
         {
             "message": "Missing item type\nSimply returns the schema of the given type.\n\n- Required by Waterline.",
-            "line": " lib/adapter.js:251"
+            "line": " lib\\adapter.js:254"
         },
         {
             "message": "Missing item type\nSearch Related.",
-            "line": " lib/adapter.js:276"
+            "line": " lib\\adapter.js:279"
         },
         {
-            "message": "Missing item type\nFind something.\n\nExample of what we get from Waterline:\n {\"where\":{\"_id\":\"orEXdQEj274Do1OLiTqU32oW\"},\"limit\":1}",
-            "line": " lib/adapter.js:281"
+            "message": "Missing item type\nSearch Documents.\n\nExample of what we get from Waterline:\n { \"where\":{ \"_id\": \"orEXdQEj274Do1OLiTqU32oW\" }, \"limit\":1 }\n\n### ElasticSearch Exceptions\nIndexMissingException[[%INDEX_NAME%] missing]",
+            "line": " lib\\adapter.js:284"
         },
         {
-            "message": "Missing item type\nFind Single Model.\n\nNotice, this is not recognized by Waterline and is only used when called programatically\nby other adapter methods, such as from findOrCreate.\n\nAlso be advised, the native findOne method only accepts two arguments.",
-            "line": " lib/adapter.js:320"
-        },
-        {
-            "message": "Missing item type",
-            "line": " lib/adapter.js:387"
+            "message": "Missing item type\nFind Single Model.\n\nNotice, this is not recognized by Waterline and is only used when called programatically\nby other Adapter methods, such as from findOrCreate.\n\nAlso be advised, the native findOne method only accepts two arguments.",
+            "line": " lib\\adapter.js:350"
         },
         {
             "message": "Missing item type",
-            "line": " lib/adapter.js:426"
+            "line": " lib\\adapter.js:417"
+        },
+        {
+            "message": "Missing item type",
+            "line": " lib\\adapter.js:456"
         },
         {
             "message": "Missing item type\nFacet Query.",
-            "line": " lib/adapter.js:445"
+            "line": " lib\\adapter.js:475"
         },
         {
             "message": "Missing item type\nNot Used / Not Supported.",
-            "line": " lib/adapter.js:465"
+            "line": " lib\\adapter.js:495"
         },
         {
             "message": "Missing item type\nStreams models to ES.",
-            "line": " lib/adapter.js:506"
+            "line": " lib\\adapter.js:536"
         },
         {
-            "message": "Missing item type\nadapter Constructor methods.",
-            "line": " lib/adapter.js:551"
+            "message": "Missing item type\nAdapter Constructor methods.",
+            "line": " lib\\adapter.js:581"
         },
         {
             "message": "Missing item type\nInstantiation helper.",
-            "line": " lib/adapter.js:556"
+            "line": " lib\\adapter.js:586"
         }
     ]
 }

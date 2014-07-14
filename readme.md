@@ -1,6 +1,9 @@
 ## Project info
  * [![Dependency status](https://david-dm.org/UsabilityDynamics/node-waterline-elasticsearch.png)](https://david-dm.org/UsabilityDynamics/node-waterline-elasticsearch#info=dependencies&view=table)
  * [![Dev Dependency Status](https://david-dm.org/UsabilityDynamics/node-waterline-elasticsearch/dev-status.png)](https://david-dm.org/UsabilityDynamics/node-waterline-elasticsearch#info=devDependencies&view=table)
+ * [![Master status](https://circleci.com/gh/UsabilityDynamics/node-waterline-elasticsearch/tree/master.png?circle-token=ad785bf3e72f75e3aae0b2f4897fe100f8538e34)](https://circleci.com/gh/UsabilityDynamics/node-waterline-elasticsearch/tree/master.png?circle-token=ad785bf3e72f75e3aae0b2f4897fe100f8538e34)
+ * [![Dev status](https://circleci.com/gh/UsabilityDynamics/node-waterline-elasticsearch/tree/dev.png?circle-token=ad785bf3e72f75e3aae0b2f4897fe100f8538e34)](https://circleci.com/gh/UsabilityDynamics/node-waterline-elasticsearch/tree/dev.png?circle-token=ad785bf3e72f75e3aae0b2f4897fe100f8538e34)
+
 
 ## Notes
 

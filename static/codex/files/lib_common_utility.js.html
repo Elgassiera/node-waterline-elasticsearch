@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>lib/common/utility.js - waterline-elasticsearch</title>
+    <title>lib\common\utility.js - waterline-elasticsearch</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -82,7 +82,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: lib/common/utility.js</h1>
+                        <h1 class="file-heading">File: lib\common\utility.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
@@ -262,6 +262,18 @@ Object.defineProperties( module.exports = Utility, {
     enumerable: false,
     writable: true,
     configurable: true
+  },
+  map: {
+    /**
+     * Iterate Over Collection.
+     *
+     * @for Utility
+     * @method forEach
+     */
+    value: require( &#x27;lodash&#x27; ).map,
+    enumerable: true,
+    configurable: true,
+    writable: true
   },
   isPlainObject: {
     value: require( &#x27;lodash&#x27; ).isPlainObject,

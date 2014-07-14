@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>lib/adapter.js - waterline-elasticsearch</title>
+    <title>lib\adapter.js - waterline-elasticsearch</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -82,27 +82,30 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1 class="file-heading">File: lib/adapter.js</h1>
+                        <h1 class="file-heading">File: lib\adapter.js</h1>
 
 <div class="file">
     <pre class="code prettyprint linenums">
+&quot;use strict&quot;;
+
+var elasticsearch = require(&#x27;elasticsearch&#x27;);
+
 /**
- * Waterline ElasticSearch adapter
+ * Waterline ElasticSearch Adapter
  *
- * @param settings
- * @param fn
+ * @param options
  * @returns {*}
  * @constructor
  */
-function adapter( options ) {
+function Adapter(options) {
 
   // Force Instantiation.
-  if( !( this instanceof adapter ) ) {
-    return adapter.create( options || {} );
+  if (!( this instanceof Adapter )) {
+    return Adapter.create(options || {});
   }
 
   // Configure dynamic settings.
-  Object.defineProperties( this, {
+  Object.defineProperties(this, {
     defaults: {
       value: {
         host: &#x27;localhost&#x27;,
@@ -129,10 +132,10 @@ function adapter( options ) {
 }
 
 /**
- * adapter Instance methods.
+ * Adapter Instance methods.
  *
  */
-Object.defineProperties( adapter.prototype, {
+Object.defineProperties(Adapter.prototype, {
 
   /**
    * Administrative.
@@ -146,11 +149,11 @@ Object.defineProperties( adapter.prototype, {
      * @param callback
      * @returns {*}
      */
-    value: function registerCollection( type, callback ) {
-      adapter.debug( &#x27;registerCollection [identity:%s]&#x27;, type.identity );
+    value: function registerCollection(type, callback) {
+      Adapter.debug(&#x27;registerCollection [identity:%s]&#x27;, type.identity);
 
       // Configure dynamic settings.
-      Object.defineProperties( this, {
+      Object.defineProperties(this, {
         connection: {
           value: undefined,
           enumerable: false
@@ -169,13 +172,13 @@ Object.defineProperties( adapter.prototype, {
           writable: true
         },
         client: {
-          value: this.options.client ? this.options.client : require( &#x27;elastic-client&#x27; ).create(),
+          value: this.options.client ? this.options.client : new elasticsearch.Client({}),
           enumerable: true,
           writable: true
         }
       });
 
-      callback( null );
+      callback(null);
 
       // @chainable
       return this;
@@ -186,7 +189,7 @@ Object.defineProperties( adapter.prototype, {
     writable: true
   },
   utility: {
-    value: require( &#x27;./common/utility&#x27; ),
+    value: require(&#x27;./common/utility&#x27;),
     enumerable: false
   },
 
@@ -205,10 +208,10 @@ Object.defineProperties( adapter.prototype, {
      * @param cb
      * @returns {*}
      */
-    value: function define( path, definition, cb ) {
-      adapter.debug( &#x27;define( %s )&#x27;, path );
+    value: function define(path, definition, cb) {
+      Adapter.debug(&#x27;define( %s )&#x27;, path);
 
-      cb( null, {} );
+      cb(null, {});
 
       // @chainable
       return this;
@@ -224,20 +227,20 @@ Object.defineProperties( adapter.prototype, {
      *
      * @param type
      * @param data
-     * @param cb
+     * @param callback
      * @returns {*}
      */
-    value: function create( type, data, callback ) {
-      adapter.debug( &#x27;create [type:%s]&#x27;, type );
+    value: function create(type, data, callback) {
+      Adapter.debug(&#x27;create [type:%s]&#x27;, type);
 
-      this.client.request( &#x27;post&#x27;, &#x27;/icbl-mtaa-pqbp-hgdt-sgtu/user&#x27;, data, function( error, body ) {
+      this.client.request(&#x27;post&#x27;, &#x27;/icbl-mtaa-pqbp-hgdt-sgtu/user&#x27;, data, function (error, body) {
 
-        if( error ) {
-          return callback( error );
+        if (error) {
+          return callback(error);
         }
 
-        if( body &amp;&amp; !body.ok ) {
-          return callback( new Error( &#x27;Could not save.&#x27; ) );
+        if (body &amp;&amp; !body.ok) {
+          return callback(new Error(&#x27;Could not save.&#x27;));
         }
 
         // Not sure if this should be done...
@@ -246,7 +249,7 @@ Object.defineProperties( adapter.prototype, {
         data._type = data._type = body._type;
         data._index = data._index = body._index;
 
-        callback( null, data );
+        callback(null, data);
 
       });
 
@@ -270,16 +273,16 @@ Object.defineProperties( adapter.prototype, {
      * @param cb
      * @returns {*}
      */
-    value: function update( path, options, values, cb ) {
-      adapter.debug( &#x27;update( %s )&#x27;, path );
+    value: function update(path, options, values, cb) {
+      Adapter.debug(&#x27;update( %s )&#x27;, path);
 
-      var type    = data.type;
-      var body    = data.body[0];
+      var type = data.type;
+      var body = data.body[0];
       var options = data.body[1];
 
-      this.connection.index( type, type, body, options, function( error, response ) {
-        if ( error ) return cb( error, null );
-        cb( null, response );
+      this.connection.index(type, type, body, options, function (error, response) {
+        if (error) return cb(error, null);
+        cb(null, response);
       });
 
       // @chainable
@@ -298,22 +301,22 @@ Object.defineProperties( adapter.prototype, {
      * @param cb
      * @returns {*}
      */
-    value: function destroy( path, options, cb ) {
-      adapter.debug( &#x27;destroy( %s )&#x27;, path );
+    value: function destroy(path, options, cb) {
+      Adapter.debug(&#x27;destroy( %s )&#x27;, path);
 
-      var opts    = options.where;
+      var opts = options.where;
 
-      var index   = path;
-      var type    = opts.type;
-      var id      = opts.id;
+      var index = path;
+      var type = opts.type;
+      var id = opts.id;
       var options = opts.options ? opts.options : null;
 
-      this.connection.delete( index, type, id, options, function ( error, response ) {
-        if ( error ) cb( error, null );
+      this.connection.delete(index, type, id, options, function (error, response) {
+        if (error) cb(error, null);
 
-        console.log( response );
+        console.log(response);
 
-        cb( null, response );
+        cb(null, response);
       });
 
       // @chainable
@@ -324,8 +327,8 @@ Object.defineProperties( adapter.prototype, {
     writable: true
   },
   drop: {
-    value: function drop( path, cb ) {
-      adapter.debug( &#x27;drop( %s )&#x27;, path );
+    value: function drop(path, cb) {
+      Adapter.debug(&#x27;drop( %s )&#x27;, path);
 
       // @chainable
       return this;
@@ -345,12 +348,12 @@ Object.defineProperties( adapter.prototype, {
      * @param cb
      * @returns {*}
      */
-    value: function describe( path, cb ) {
-      adapter.debug( &#x27;describe( %s )&#x27;, path );
+    value: function describe(path, cb) {
+      Adapter.debug(&#x27;describe( %s )&#x27;, path);
 
       // this.connection.getMapping( &#x27;_all&#x27;, function( error, data ) { cb( null, data.properties ) });
 
-      cb( null, {} );
+      cb(null, {});
 
       // @chainable
       return this;
@@ -367,32 +370,59 @@ Object.defineProperties( adapter.prototype, {
    */
   find: {
     /**
-     * Find something.
+     * Search Documents.
      *
      * Example of what we get from Waterline:
-     *  {&quot;where&quot;:{&quot;_id&quot;:&quot;orEXdQEj274Do1OLiTqU32oW&quot;},&quot;limit&quot;:1}
+     *  { &quot;where&quot;:{ &quot;_id&quot;: &quot;orEXdQEj274Do1OLiTqU32oW&quot; }, &quot;limit&quot;:1 }
      *
-     * @param path
-     * @param options
-     * @param cb
+     * ### ElasticSearch Exceptions
+     * IndexMissingException[[%INDEX_NAME%] missing]
+     *
+     * @param type {string}
+     * @param query {object}
+     * @param callback {function}
      * @returns {*}
      */
-    value: function find( type, query, callback ) {
-      adapter.debug( &#x27;find: [%s] [%s]&#x27;, type, JSON.stringify( query ) );
+    value: function find(type, query, callback) {
+      Adapter.debug(&#x27;find: [%s] [%s]&#x27;, type, JSON.stringify(query));
 
-      //console.log( this.tableName );
+      var _utility = require(&#x27;./common/utility&#x27;);
 
-      this.client.search( query.where, function( error, data ) {
+      this.client.search(query.where, function (error, data) {
 
-        // No Results.
-        // @todo Should this return an error?
-        if( data.hits.total === 0 ) {
-          return callback( null, [] );
+        // Request Error.
+        if (error || !data) {
+          return callback(error || new Error(&#x27;No response.&#x27;));
+        }
+
+        // ElasticSearch returned actual error.
+        if (data.error) {
+          return callback(new Error(data.error));
+        }
+
+        // Valid Index but no results.
+        // @todo Should this return an error if no results are found?
+        if (data.hits.total === 0) {
+          return callback(null, []);
         }
 
         // Have Result.
-        // @todo Determine if we should be returhing _source.
-        return callback( null, data.hits.hits );
+        return callback(null, _utility.map(data.hits.hits, function single(data, index) {
+
+          // @todo Need to verify this.
+          if (data.facets) {
+            return data.facets;
+          }
+
+          // Return &quot;fields&quot; if set.
+          if (data.fields) {
+            return data.fields;
+          }
+
+          // Return full source.
+          return data._source;
+
+        }));
 
       });
 
@@ -409,7 +439,7 @@ Object.defineProperties( adapter.prototype, {
      * Find Single Model.
      *
      * Notice, this is not recognized by Waterline and is only used when called programatically
-     * by other adapter methods, such as from findOrCreate.
+     * by other Adapter methods, such as from findOrCreate.
      *
      * Also be advised, the native findOne method only accepts two arguments.
      *
@@ -418,10 +448,10 @@ Object.defineProperties( adapter.prototype, {
      * @param callback
      * @returns {*}
      */
-    value: function findOne( type, query, callback ) {
-      adapter.debug( &#x27;findOne [type:%s]&#x27;, type );
+    value: function findOne(type, query, callback) {
+      Adapter.debug(&#x27;findOne [type:%s]&#x27;, type);
 
-      console.log( &#x27;findOne&#x27; );
+      console.log(&#x27;findOne&#x27;);
 
       var _query = {
         query: {},
@@ -429,13 +459,13 @@ Object.defineProperties( adapter.prototype, {
         size: 10
       };
 
-      if( query.where &amp;&amp; query.where.id ) {
+      if (query.where &amp;&amp; query.where.id) {
 
         _query.query.bool = {
           &quot;must&quot;: [
             {
               &quot;query_string&quot;: {
-                &quot;default_field&quot;: [ type, query.where.id ].join( &#x27;.&#x27; ),
+                &quot;default_field&quot;: [ type, query.where.id ].join(&#x27;.&#x27;),
                 &quot;query&quot;: query.where.id
               }
             }
@@ -446,18 +476,18 @@ Object.defineProperties( adapter.prototype, {
 
       }
 
-      this.client.request( &#x27;post&#x27;, &#x27;/_search&#x27;, _query, function response( error, body ) {
+      this.client.request(&#x27;post&#x27;, &#x27;/_search&#x27;, _query, function response(error, body) {
 
-        if( error ) {
-          return callback( error, body );
+        if (error) {
+          return callback(error, body);
         }
 
-        if( body.hits &amp;&amp; body.hits.total &gt; 0 ) {
-          return callback( null, body.hits.hits );
+        if (body.hits &amp;&amp; body.hits.total &gt; 0) {
+          return callback(null, body.hits.hits);
         }
 
         // No results.
-        return callback( null );
+        return callback(null);
 
       });
 
@@ -480,28 +510,28 @@ Object.defineProperties( adapter.prototype, {
      * @param callback
      * @returns {*}
      */
-    value: function findOrCreate( type, criteria, values, callback ) {
-      adapter.debug( &#x27;findOrCreate: [type:%s]&#x27;, type );
+    value: function findOrCreate(type, criteria, values, callback) {
+      Adapter.debug(&#x27;findOrCreate: [type:%s]&#x27;, type);
 
-      this.findOne( type, criteria, function( error, result ) {
+      this.findOne(type, criteria, function (error, result) {
 
         // Request Failure.
-        if( error ) {
-          return callback( error );
+        if (error) {
+          return callback(error);
         }
 
         // Have Results.
-        if( result ) {
-          return calback( null, result );
+        if (result) {
+          return calback(null, result);
         }
 
         // Nothing found, create.
-        this.create( type, values, callback );
+        this.create(type, values, callback);
 
         // @chainable
         return this;
 
-      }.bind( this ) );
+      }.bind(this));
 
       // @chainable
       return this;
@@ -518,8 +548,8 @@ Object.defineProperties( adapter.prototype, {
      * @param data
      * @param cb
      */
-    value: function query( path, query, data, cb ) {
-      adapter.debug( &#x27;query( %s )&#x27;, path );
+    value: function query(path, query, data, cb) {
+      Adapter.debug(&#x27;query( %s )&#x27;, path);
 
       // @chainable
       return this;
@@ -538,8 +568,8 @@ Object.defineProperties( adapter.prototype, {
      * @param data
      * @param cb
      */
-    value: function facets( path, query, cb ) {
-      adapter.debug( &#x27;facets( %s )&#x27;, query );
+    value: function facets(path, query, cb) {
+      Adapter.debug(&#x27;facets( %s )&#x27;, query);
 
       // @chainable
       return this;
@@ -555,8 +585,8 @@ Object.defineProperties( adapter.prototype, {
    *
    */
   teardown: {
-    value: function teardown( cb ) {
-      adapter.debug( &#x27;teardown()&#x27; );
+    value: function teardown(cb) {
+      Adapter.debug(&#x27;teardown()&#x27;);
 
       // @chainable
       return this;
@@ -567,8 +597,8 @@ Object.defineProperties( adapter.prototype, {
     writable: true
   },
   native: {
-    value: function _native( type, cb ) {
-      adapter.debug( &#x27;native()&#x27; );
+    value: function _native(type, cb) {
+      Adapter.debug(&#x27;native()&#x27;);
 
       // @chainable
       return this;
@@ -579,8 +609,8 @@ Object.defineProperties( adapter.prototype, {
     writable: true
   },
   createEach: {
-    value: function createEach( path, data, cb ) {
-      adapter.debug( &#x27;createEach( %s )&#x27;, path );
+    value: function createEach(path, data, cb) {
+      Adapter.debug(&#x27;createEach( %s )&#x27;, path);
 
       // @chainable
       return this;
@@ -598,8 +628,8 @@ Object.defineProperties( adapter.prototype, {
      * @param options
      * @param stream
      */
-    value: function stream( path, options, stream ) {
-      adapter.debug( &#x27;stream( %s )&#x27;, path );
+    value: function stream(path, options, stream) {
+      Adapter.debug(&#x27;stream( %s )&#x27;, path);
 
       // @chainable
       return this;
@@ -610,8 +640,8 @@ Object.defineProperties( adapter.prototype, {
     writable: true
   },
   addAttribute: {
-    value: function addAttribute( path, attrName, attrDef, cb ) {
-      adapter.debug( &#x27;addAttribute( %s )&#x27;, path );
+    value: function addAttribute(path, attrName, attrDef, cb) {
+      Adapter.debug(&#x27;addAttribute( %s )&#x27;, path);
 
       // @chainable
       return this;
@@ -622,8 +652,8 @@ Object.defineProperties( adapter.prototype, {
     writable: true
   },
   removeAttribute: {
-    value: function removeAttribute( path, attrName, cb ) {
-      adapter.debug( &#x27;removeAttribute( %s )&#x27;, path );
+    value: function removeAttribute(path, attrName, cb) {
+      Adapter.debug(&#x27;removeAttribute( %s )&#x27;, path);
 
       // @chainable
       return this;
@@ -637,27 +667,27 @@ Object.defineProperties( adapter.prototype, {
 });
 
 /**
- * adapter Constructor methods.
+ * Adapter Constructor methods.
  */
-Object.defineProperties( module.exports = adapter, {
+Object.defineProperties(module.exports = Adapter, {
   create: {
     /**
      * Instantiation helper.
      *
-     * @param settings
-     * @returns {adapter}
+     * @param options
+     * @returns {Adapter}
      */
-    value: function create( options ) {
-      return new adapter( options || {} );
+    value: function create(options) {
+      return new Adapter(options || {});
     },
     enumerable: true
   },
   debug: {
-    value: require( &#x27;debug&#x27; )( &#x27;waterline:elasticsearch&#x27; ),
+    value: require(&#x27;debug&#x27;)(&#x27;waterline:elasticsearch&#x27;),
     writable: true
   },
   defaults: {
-    value: require( &#x27;../package&#x27; ).config,
+    value: require(&#x27;../package&#x27;).config,
     enumerable: true,
     writable: true
   }
